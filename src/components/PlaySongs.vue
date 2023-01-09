@@ -1,6 +1,6 @@
 <template>
 <div class="play-songs">
-    <v-list class="w-100 pa-0">
+           <v-list class="w-100 pa-0">
         <v-list-item class="w-100 pa-0" v-if="music">
             <Music :songs="music" />
         </v-list-item>

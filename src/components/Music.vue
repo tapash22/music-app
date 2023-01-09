@@ -1,8 +1,9 @@
 <template>
 <div class="music">
-    <v-card>
+    <v-container>
+  <v-card>
         <v-card-title class="d-flex justify-center my-5">Now Playing</v-card-title>
-        <v-img class="mx-5 rounded-lg" :src="music.image" />
+        <v-img class="mx-5 rounded-lg" :src="songs.image" />
         <v-card-text>
             <v-card-text class="pa-0 text-h6 text-center">{{songs.name}}</v-card-text>
             <v-card-subtitle class="pa-0 text-body-1 text-center">{{songs.sub}}</v-card-subtitle>
@@ -29,6 +30,8 @@
             <v-slider v-model="value1" step="10" color="red" append-icon="mdi-volume-high" prepend-icon="mdi-volume-low"></v-slider>
         </v-card-text>
     </v-card>
+    </v-container>
+  
 </div>
 </template>
 
