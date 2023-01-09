@@ -19,14 +19,14 @@
                 </v-sheet>
             </v-col>
 
-            <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-flex justify-center">
+            <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down">
                 <v-container>
-                    <PlaySongs />
+                    <PlaySongs :music="musicOn"/>
                 </v-container>
                 
             </v-col>
 
-            <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-flex justify-center">
+            <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down">
                 <v-sheet width="100%" height="100vh"  class="d-block">
                     <h2 class="text-uppercase text-h6 my-3 mx-3">top list</h2>
                     <div style="display:flex;">
@@ -36,7 +36,7 @@
                     <v-card class="pa-2 my-2 " rounded="lg">
                         <v-card-subtitle>Playing next</v-card-subtitle>
                         <v-card-text v-for="music in musiclist" :key="music.id" class="pa-0">
-                            <SinglePlay :music="music" />
+                            <SinglePlay :music="music" @music-single='getSingleId'/>
                         </v-card-text>
                     </v-card>
                 </v-sheet>
@@ -50,6 +50,7 @@
 import SingleMusicCard from '@/components/SingleMusicCard.vue';
 import PlaySongs from '@/components/PlaySongs.vue';
 import SinglePlay from '@/components/SinglePlay.vue';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
     name: 'Home',
@@ -57,65 +58,29 @@ export default {
         return {
             e1: '',
             value: '',
-            musiclist: [{
-                    id: 1,
-                    image: 'https://dw0i2gv3d32l1.cloudfront.net/uploads/stage/stage_image/39631/optimized_large_thumb_stage.jpg',
-                    name: 'title',
-                    date: 2016,
-                    sub: 'sub',
-                    playing: 3.12
-                },
-                {
-                    id: 2,
-                    image: 'https://dw0i2gv3d32l1.cloudfront.net/uploads/stage/stage_image/39631/optimized_large_thumb_stage.jpg',
-                    name: 'title',
-                    date: 2015,
-                    sub: 'sub',
-                    playing: 3.12
-                },
-                {
-                    id: 3,
-                    image: 'https://dw0i2gv3d32l1.cloudfront.net/uploads/stage/stage_image/39631/optimized_large_thumb_stage.jpg',
-                    name: 'title',
-                    date: 2014,
-                    sub: 'sub',
-                    playing: 3.12
-                },
-                {
-                    id: 4,
-                    image: 'https://dw0i2gv3d32l1.cloudfront.net/uploads/stage/stage_image/39631/optimized_large_thumb_stage.jpg',
-                    name: 'title',
-                    date: 2013,
-                    sub: 'sub',
-                    playing: 3.12
-                },
-                {
-                    id: 5,
-                    image: 'https://dw0i2gv3d32l1.cloudfront.net/uploads/stage/stage_image/39631/optimized_large_thumb_stage.jpg',
-                    name: 'title',
-                    date: 2012,
-                    sub: 'sub',
-                    playing: 3.12
-                },
-                {
-                    id: 6,
-                    image: 'https://dw0i2gv3d32l1.cloudfront.net/uploads/stage/stage_image/39631/optimized_large_thumb_stage.jpg',
-                    name: 'title',
-                    date: 2012,
-                    sub: 'sub',
-                    playing: 3.12
-                },
-            ],
-            lists: [
-                'last 3 days', 'last week', 'last month', 'last 3 monty', 'last 6 month'
-            ]
+            musicOn:''
         }
     },
+    computed:{
+        ...mapState(['musiclist','lists']),
+    
+    },
+
     components: {
         SingleMusicCard,
         PlaySongs,
         SinglePlay
     },
+
+    methods:{
+        // getMusicId(id){
+        //     this.selectedId = id;
+        //     this.music = this.getMusicById(id);
+        // }
+        getSingleId(musics){
+            this.musicOn = musics;
+        }
+    }
 }
 </script>
 
