@@ -11,7 +11,8 @@ export default new Vuex.Store({
       name: 'title1',
       date: 2016,
       sub: 'sub',
-      playing: 3.12
+      playing: 3.12,
+      music:require('@/assets/audio/audio.mp3')
     },
     {
       id: 2,
@@ -19,7 +20,8 @@ export default new Vuex.Store({
       name: 'title2',
       date: 2015,
       sub: 'sub',
-      playing: 3.12
+      playing: 3.12,
+      music:'https://filesamples.com/formats/mp3/sample2.mp3'
     },
     {
       id: 3,
@@ -27,7 +29,8 @@ export default new Vuex.Store({
       name: 'title3',
       date: 2014,
       sub: 'sub',
-      playing: 3.12
+      playing: 3.12,
+      music:'https://filesamples.com/formats/mp3/sample4.mp3'
     },
     {
       id: 4,
@@ -35,7 +38,8 @@ export default new Vuex.Store({
       name: 'title4',
       date: 2013,
       sub: 'sub',
-      playing: 3.12
+      playing: 3.12,
+      music:'https://filesamples.com/formats/mp3/sample3.mp3'
     },
     {
       id: 5,
@@ -43,7 +47,8 @@ export default new Vuex.Store({
       name: 'title5',
       date: 2012,
       sub: 'sub',
-      playing: 3.12
+      playing: 3.12,
+      music:'https://filesamples.com/formats/mp3/sample2.mp3'
     },
     {
       id: 6,
@@ -51,7 +56,8 @@ export default new Vuex.Store({
       name: 'title6',
       date: 2012,
       sub: 'sub',
-      playing: 3.12
+      playing: 3.12,
+      music:'https://filesamples.com/formats/mp3/sample1.mp3'
     },
     ],
     lists: [

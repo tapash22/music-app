@@ -1,20 +1,20 @@
 <template>
 <div class="navigation">
-    <v-app-bar app>
-        <v-app-bar-title class="title">MusicApp</v-app-bar-title>
+    <v-app-bar app color="#265E69">
+        <v-app-bar-title class="title white--text">MusicApp</v-app-bar-title>
         <v-spacer></v-spacer>
-        <v-text-field class="shrink hidden-sm-and-down" hide-details append-icon="mdi-magnify" dense hint="search" rounded filled />
+        <v-text-field class="shrink hidden-sm-and-down " hide-details append-icon="mdi-magnify" color="white" dense hint="search" rounded filled />
         <!-- <v-spacer></v-spacer> -->
     </v-app-bar>
-    <v-navigation-drawer app mini-variant permanent>
-        <v-avatar size="34" class=" mx-2 my-4" color="red">
+    <v-navigation-drawer app mini-variant permanent color="#265E69">
+        <v-avatar size="34" class=" mx-2 my-4" color="white">
             <v-img src="@/assets/logo.png" />
         </v-avatar>
         <v-divider></v-divider>
         <v-list class="d-block pa-0">
             <v-list-item v-for="list in items" :key="list.id">
                 <router-link :to="list.link" class="text-decoration-none text-red pa-0">
-                    <v-icon class="text-h5" color="red">
+                    <v-icon class="text-h5" color="white">
                         mdi-{{list.icon}}
                     </v-icon>
                 </router-link>
@@ -23,7 +23,7 @@
                 <v-dialog v-model="dialog" hide-overlay style="margin-top:200px" >
                     <template v-slot:activator="{on,attrs}">
                         <v-btn icon v-bind="attrs" v-on="on">
-                            <v-icon color="red" class="text-h5">
+                            <v-icon color="white" class="text-h5">
                                 mdi-magnify
                             </v-icon>
                         </v-btn>

@@ -1,6 +1,6 @@
 <template>
 <div class="play-songs">
-           <v-list class="w-100 pa-0">
+    <v-list class="d-flex pa-0">
         <v-list-item class="w-100 pa-0" v-if="music">
             <Music :songs="music" />
         </v-list-item>
@@ -14,8 +14,7 @@
 
 <script>
 import {
-    mapGetters,
-    mapState
+    mapGetters
 } from 'vuex';
 
 import Music from './Music.vue';
@@ -27,6 +26,7 @@ export default {
         return {
             value: '',
             value1: '',
+            playMusic: true
         }
     },
 
@@ -35,9 +35,19 @@ export default {
     },
 
     computed: {
-        ...mapState(['iconlist']),
         ...mapGetters(['getMusicByFirstId']),
-    }
+    },
+
+    // methods: {
+    //     playSongs() {
+    //         if (this.playMusic) {
+    //             this.$refs.audioPlayer.pause();
+    //         } else {
+    //             this.$refs.audioPlayer.play();
+    //         }
+    //     }
+
+    // }
 
 }
 </script>

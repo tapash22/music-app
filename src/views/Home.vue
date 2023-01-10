@@ -1,7 +1,7 @@
 <template>
 <div class="home">
     <v-container>
-        <v-row>
+        <v-row >
             <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-flex justify-center">
                 <v-sheet class="d-block pa-2 " width="100%">
                     <h2>Discover new music</h2>
@@ -19,13 +19,11 @@
                 </v-sheet>
             </v-col>
 
-            <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down pa-2">
-
+            <v-col cols="12" sm="12" md="5" lg="5" xl="5" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down pa-2">
                 <PlaySongs :music="musicOn" />
-
             </v-col>
 
-            <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down">
+            <v-col cols="12" sm="12" md="3" lg="3" xl="3" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down">
                 <v-sheet width="100%" height="100vh" class="d-block">
                     <h2 class="text-uppercase text-h6 my-3 mx-3">top list</h2>
                     <div style="display:flex;">
