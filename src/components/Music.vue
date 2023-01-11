@@ -9,46 +9,46 @@
         <v-card-text>
             <v-card-text class="pa-0 text-h6 text-center white--text">{{songs.name}}</v-card-text>
             <v-card-subtitle class="pa-0 text-body-1 text-center white--text">{{songs.sub}}</v-card-subtitle>
-            <div style="display:flex;justify-content:space-between;padding:0;margin:0;">
-                <v-card-title class="pa-0 text-body-2 white-text">{{max}}</v-card-title>
+            <!-- <div style="display:flex;justify-content:space-between;padding:0;margin:0;">
+                <v-card-title class="pa-0 text-body-2 white-text">{{max.toString()}}</v-card-title>
                 <v-card-title class="pa-0 text-body-2 white-text">-{{min}}</v-card-title>
-            </div>
+            </div> -->
             <v-slider v-model="musicLength" step="0.1" @input="updateLength" class="pa-0"></v-slider>
         </v-card-text>
-        <v-card-text class="d-flex justify-space-around pa-0">
-            <v-btn icon >
+        <v-card-text class="d-flex justify-center pa-0">
+            <!-- <v-btn icon>
                 <v-icon color="white">mdi-shuffle-variant</v-icon>
-            </v-btn>
+            </v-btn> -->
 
             <!-- button -->
 
-            <div style="display:flex;justify-content:space-evenly">
-                <v-btn icon @click="onClick" class=" " color="white">
+            <div style="display:flex;justify-content:space-between">
+                <!-- <v-btn icon @click="previousMusic(songs.id)" class=" " color="white">
                     <v-icon class="text-h4" color="white">mdi-skip-previous-outline</v-icon>
-                </v-btn>
-                <v-btn icon @click="onClick" class=" mx-3" color="white">
+                </v-btn> -->
+                <v-btn icon @click="onClick" class=" mx-3 my-3" color="white">
                     <v-list color="transparent">
                         <v-list-item v-if="playMusic">
-                             <v-icon class="text-h3" color="red">mdi-pause-circle-outline</v-icon>
+                            <v-icon class="text-h3" color="red">mdi-pause-circle-outline</v-icon>
                         </v-list-item>
                         <v-list-item v-else>
                             <v-icon class="text-h3" color="red">mdi-play-circle-outline</v-icon>
                         </v-list-item>
                     </v-list>
-                   
+
                 </v-btn>
-                <v-btn icon @click="onClick" class="pa-0" color="white">
+                <!-- <v-btn icon @click="nextMusic" class="pa-0" color="white">
                     <v-icon class="text-h4" color="white">mdi-skip-next-outline</v-icon>
-                </v-btn>
+                </v-btn> -->
             </div>
 
-            <v-btn icon>
+            <!-- <v-btn icon >
                 <v-icon color="white">mdi-repeat</v-icon>
-            </v-btn>
+            </v-btn> -->
         </v-card-text>
-        <v-card-text>
+        <!-- <v-card-text>
             <v-slider v-model="volume" step="1" max="100" @input="updateVolume" color="white" :label="volume" inverse-label prepend-icon="mdi-volume-high"></v-slider>
-        </v-card-text>
+        </v-card-text> -->
     </v-card>
 
 </div>
@@ -66,28 +66,30 @@ export default {
         return {
             value1: '',
             value: '',
-            volume: 50,
-            musicLength: 0,
-            max: 0,
-            min: 0,
-            total: 100,
+            volume: '',
+            musicLength: '',
+            // max: 0,
+            // min: 0,
+            // total: 100,
 
             playMusic: true,
-            icon:'',
-            icon1:''
+            icon: '',
+            icon1: '',
+
+            // id:0
         }
     },
     computed: {
         ...mapState(['iconlist']),
 
-        convertedValue: {
-            get: function () {
-                return this.exObj.value / this.conversionFactor
-            },
-            set: function (newValue) {
-                this.exObj.value = newValue * this.conversionFactor
-            }
-        }
+        // convertedValue: {
+        //     get: function () {
+        //         return this.exObj.value / this.conversionFactor
+        //     },
+        //     set: function (newValue) {
+        //         this.exObj.value = newValue * this.conversionFactor
+        //     }
+        // }
     },
 
     methods: {
@@ -105,6 +107,16 @@ export default {
 
         },
 
+        // previousMusic(id) {
+        //     this.id = id
+        //     this.$emit('prev-music',this.id);
+           
+        // },
+
+        // nextMusic() {
+        //     this.$emit('next-music');
+        // },
+
         updateVolume(value) {
             this.volume = +value;
         },
@@ -120,6 +132,6 @@ export default {
 <style scoped>
 .audio {
     opacity: 0;
-  
+
 }
 </style>

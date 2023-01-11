@@ -1,7 +1,7 @@
 <template>
 <div class="home">
     <v-container>
-        <v-row >
+        <v-row>
             <v-col cols="12" sm="12" md="4" lg="4" xl="4" class="d-flex justify-center">
                 <v-sheet class="d-block pa-2 " width="100%">
                     <h2>Discover new music</h2>
@@ -20,7 +20,7 @@
             </v-col>
 
             <v-col cols="12" sm="12" md="5" lg="5" xl="5" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down pa-2">
-                <PlaySongs :music="musicOn" />
+                <PlaySongs :music="musicOn"  />
             </v-col>
 
             <v-col cols="12" sm="12" md="3" lg="3" xl="3" class="d-md-flex d-lg-flex justify-center hidden-sm-and-down">
@@ -58,12 +58,14 @@ export default {
         return {
             e1: '',
             value: '',
-            musicOn: ''
+            musicOn: '',
+            hid: 0
+
         }
     },
     computed: {
         ...mapState(['musiclist', 'lists']),
-
+        ...mapGetters(['getMusicById'])
     },
 
     components: {
@@ -73,13 +75,49 @@ export default {
     },
 
     methods: {
-        // getMusicId(id){
-        //     this.selectedId = id;
-        //     this.music = this.getMusicById(id);
-        // }
+
         getSingleId(musics) {
             this.musicOn = musics;
+
         }
+        // prevMusic($event) {
+        //     this.hid = $event;
+        //        this.musicOn=this.getPrevId(this.sid);
+        // console.log(this.hid);
+        // this.getPrevId(hid);
+        // if(this.hid != 0){
+        //     this.hid -=1 ;
+        //     this.getSingleId(this.hid);
+        //     console.log(this.musicOn);
+
+        // }else{
+        //     this.hid = this.getLength - 1;
+        //       this.getSingleId(this.hid);
+        //     console.log(this.musicOn);
+        //     console.log(this.hid);
+        //     this.getMusicById(this.hid);
+
+        // }
+
+        //  if (this.id < this.list.length - 1) {
+        //     this.currentSongIndex += 1;
+        // } else {
+        //     this.currentSongIndex = 0;
+        // }
+        // this.$emit('prev-music')
+        // if(this.id = !1){
+        //     this.id -= 1;
+        //     this.getMusicById(id);
+        // }else{
+        //     this.id = 1
+        //     this.getMusicById(id)
+        // }
+
+        // nextMusic() {
+        //     this.$emit('next-music')
+        //     console.log('from home 2')
+        // },
+
     }
 }
 </script>

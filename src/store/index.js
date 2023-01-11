@@ -60,9 +60,11 @@ export default new Vuex.Store({
       music:'https://filesamples.com/formats/mp3/sample1.mp3'
     },
     ],
+
     lists: [
       'last 3 days', 'last week', 'last month', 'last 3 monty', 'last 6 month'
     ],
+
     iconlist: [
       'skip-previous-outline',
       'play-circle-outline',
@@ -70,10 +72,25 @@ export default new Vuex.Store({
     ],
   },
   getters: {
+    getLength:(state)=>{
+      return state.musiclist.length;
+    },
 
     getMusicById:(state)=>(id)=>{
       return state.musiclist.find(music => music.id === id);
     },
+
+    getPrevId:(state,getters)=>(id)=>{
+      let length= getters.getLength;
+      if(id != 0){
+        id -= 1;
+        return state.musiclist.find(music =>music.id === id);
+      }else{
+        id = length -1
+        return state.musiclist.find(music => music.id === id)
+      }   
+    },
+
     getMusicByFirstId:(state)=>{
       return state.musiclist.find(music => music.id === 1);
     }

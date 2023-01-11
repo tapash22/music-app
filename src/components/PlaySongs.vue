@@ -2,10 +2,10 @@
 <div class="play-songs">
     <v-list class="d-flex pa-0">
         <v-list-item class="w-100 pa-0" v-if="music">
-            <Music :songs="music" />
+            <Music :songs="music"  />
         </v-list-item>
         <v-list-item class="w-100 pa-0" v-else>
-            <Music :songs="getMusicByFirstId" />
+            <Music :songs="getMusicByFirstId"  />
         </v-list-item>
     </v-list>
 
@@ -26,7 +26,9 @@ export default {
         return {
             value: '',
             value1: '',
-            playMusic: true
+            playMusic: true,
+            // sid:0
+            
         }
     },
 
@@ -38,16 +40,27 @@ export default {
         ...mapGetters(['getMusicByFirstId']),
     },
 
-    // methods: {
-    //     playSongs() {
-    //         if (this.playMusic) {
-    //             this.$refs.audioPlayer.pause();
-    //         } else {
-    //             this.$refs.audioPlayer.play();
-    //         }
-    //     }
+    methods: {
+        // prevMusic($event) {
+        //     this.sid = $event;
+         
+        //     console.log(this.sid+'from paly');
+        //     this.$emit('prev-music',this.sid)
+        // },
 
-    // }
+        // nextMusic() {
+        //     this.$emit('next-music')
+        // }
+
+            // playSongs() {
+            //     if (this.playMusic) {
+            //         this.$refs.audioPlayer.pause();
+            //     } else {
+            //         this.$refs.audioPlayer.play();
+            //     }
+            // }
+
+    }
 
 }
 </script>
